@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2020 Saisurya Kattamuri <saisurya.kat@gmail.com> -->
+<component type="desktop">
+  <id>com.github.saisuryakat.gittree</id>
+  <metadata_license>CC0</metadata_license>
+  <name>GitTree</name>
+  <summary>Ideas to Apps, Dreams to Execution</summary>
+  <description>
+    <p>Simple Git GUI Client</p>
+  </description>
+</component>

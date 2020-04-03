@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=GitTree
+GenericName=Git GUI Client
+Comment=Ideas to Apps, Dreams to Execution
+Categories=Development;Utility;
+Exec=com.github.saisuryakat.gittree
+Icon=application-default-Icon
+Terminal=false
+Type=Application
+Keywords=git;gitclient;gitgui;gittree;tree;
