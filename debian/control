@@ -1,0 +1,15 @@
+Source: com.github.saisuryakat.gittree
+Section: x11
+Priority: extra
+Maintainer: Saisurya Kattamuri <saisurya.kat@gmail.com>
+Build-Depends: cmake (>= 2.8),
+               debhelper (>= 9),
+               libgtk-3-dev,
+               valac (>= 0.40.0)
+Standards-Version: 3.9.3
+
+Package: com.github.saisuryakat.gittree
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: GitTree
+ Git GUI Application
