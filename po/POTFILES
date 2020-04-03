@@ -1,0 +1,4 @@
+src/MainWindow.vala
+src/Layouts/WelcomeView.vala
+data/com.github.saisuryakat.gittree.desktop.in
+data/com.github.saisuryakat.gittree.appdata.xml.in

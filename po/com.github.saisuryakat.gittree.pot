@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.saisuryakat.gittree package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.saisuryakat.gittree\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-03 19:36+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/MainWindow.vala:15 data/com.github.saisuryakat.gittree.desktop.in:3
+#: data/com.github.saisuryakat.gittree.appdata.xml.in:6
+msgid "GitTree"
+msgstr ""
+
+#: src/Layouts/WelcomeView.vala:7
+msgid "Welcome to GitTree"
+msgstr ""
+
+#: src/Layouts/WelcomeView.vala:8
+msgid "Select one of the following to get started"
+msgstr ""
+
+#: src/Layouts/WelcomeView.vala:12
+msgid "Open Repo"
+msgstr ""
+
+#: src/Layouts/WelcomeView.vala:12
+msgid "Open an existing Repo from files"
+msgstr ""
+
+#: src/Layouts/WelcomeView.vala:13
+msgid "Clone Repo"
+msgstr ""
+
+#: src/Layouts/WelcomeView.vala:13
+msgid "Clone a new Repo from internet"
+msgstr ""
+
+#: src/Layouts/WelcomeView.vala:14
+msgid "Init Repo"
+msgstr ""
+
+#: src/Layouts/WelcomeView.vala:14
+msgid "Initialize a new Git Repo"
+msgstr ""
+
+#: data/com.github.saisuryakat.gittree.desktop.in:4
+msgid "Git GUI Client"
+msgstr ""
+
+#: data/com.github.saisuryakat.gittree.desktop.in:5
+#: data/com.github.saisuryakat.gittree.appdata.xml.in:7
+msgid "Ideas to Apps, Dreams to Execution"
+msgstr ""
+
+#: data/com.github.saisuryakat.gittree.desktop.in:8
+msgid "application-default-Icon"
+msgstr ""
+
+#: data/com.github.saisuryakat.gittree.desktop.in:10
+msgid "git;gitclient;gitgui;gittree;tree;"
+msgstr ""
+
+#: data/com.github.saisuryakat.gittree.appdata.xml.in:9
+msgid "Simple Git GUI Client"
+msgstr ""
