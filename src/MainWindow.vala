@@ -12,7 +12,7 @@ public class GitTree.Window : Gtk.ApplicationWindow {
         //HeaderBar
         var header = new Gtk.HeaderBar ();
         header.show_close_button = true;
-        header.title = "GitTree";
+        header.title = _("GitTree");
 
         set_titlebar (header);
 

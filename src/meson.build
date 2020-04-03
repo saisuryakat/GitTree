@@ -9,7 +9,7 @@ executable(
     'Layouts/WelcomeView.vala',
     dependencies: [
         dependency('gtk+-3.0'),
-        dependency('granite', version: '>= 0.5.1')
+        dependency('granite')
     ],
     install: true
 )
