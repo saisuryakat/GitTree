@@ -7,7 +7,7 @@ public class GitTree.Application : Gtk.Application {
     }
 
     protected override void activate () {
-        var window = new GitTree.Window (this);
+        var window = new GitTree.AppWindow (this);
 
         add_window (window);
     }

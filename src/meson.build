@@ -6,7 +6,12 @@ executable(
     'Application.vala',
     'MainWindow.vala',
 
-    'Layouts/WelcomeView.vala',
+    'Views/WelcomeView.vala',
+    'Views/HeaderBarView.vala',
+    'Views/WelcomeView.vala',
+    'Views/HostingServicesView.vala',
+    'Views/RecentsView.vala',
+    'Views/RepositoriesView.vala',
     dependencies: [
         dependency('gtk+-3.0'),
         dependency('granite')
