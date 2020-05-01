@@ -6,15 +6,15 @@ public class GitTree.Views.WelcomeView : Granite.SettingsPage {
     home_icon.pixel_size = 24;
 
         Object (
-            header: "Home",
+            header: _("Home"),
             display_widget: home_icon,
-            title: "Welcome",
-            status: "Get started"
+            title: _("Welcome"),
+            status: _("Get started")
         );
     }
 
     construct {
-        var welcome = new Granite.Widgets.Welcome (_("Welcome to GitTree"), _("Select one of the following to get started"));
+        var welcome = new Granite.Widgets.Welcome (_("Welcome to GitTree"), _("Get started . . ."));
         welcome.append ("folder-open", _("Open Repo"), _("Open an existing Repo from files"));
         welcome.append ("folder-copy", _("Clone Repo"), _("Clone a new Repo from internet"));
         welcome.append ("folder-new", _("Init Repo"), _("Initialize a new Git Repo"));
