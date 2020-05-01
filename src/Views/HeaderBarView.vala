@@ -14,6 +14,8 @@ public class GitTree.Views.HeaderBarView : Gtk.HeaderBar {
         pack_start_git_fetch_pull_push_button_group_ui ();
         pack_end (app_menu);
         pack_end(theme_mode_switch);
+        pack_end_find_button_ui ();
+        pack_end_open_with_button_ui ();
         pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
         pack_end_stash_button_group_ui();
     }
@@ -90,6 +92,18 @@ public class GitTree.Views.HeaderBarView : Gtk.HeaderBar {
         pack_start (git_fetch);
         pack_start (git_pull);
         pack_start (git_push);
+    }
+
+    private void pack_end_find_button_ui () {
+        var find_button = build_menu_button_ui ("edit-find", "Find");
+
+        pack_end (find_button);
+    }
+
+    private void pack_end_open_with_button_ui () {
+        var open_with_button = build_menu_button_ui ("document-export", "Open With");
+
+        pack_end (open_with_button);
     }
 
     private void pack_end_stash_button_group_ui () {
