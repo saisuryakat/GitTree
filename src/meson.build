@@ -14,7 +14,9 @@ executable(
     'Views/RepositoriesView.vala',
     dependencies: [
         dependency('gtk+-3.0'),
-        dependency('granite')
+        dependency('granite'),
+        dependency('sqlite3'),
+        dependency('gee-0.8'),
     ],
     install: true
 )
