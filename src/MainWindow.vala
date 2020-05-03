@@ -13,27 +13,35 @@ public class GitTree.AppWindow : Gtk.ApplicationWindow {
 
         //HeaderBar
         var header = new GitTree.Views.HeaderBarView ();
-
         set_titlebar (header);
 
-        var notebook = new Granite.Widgets.DynamicNotebook ();
-        notebook.expand = true;
-        notebook.allow_restoring = true;
+        //WindowBody
+        var tabbed_window = new Granite.Widgets.DynamicNotebook ();
+        tabbed_window.expand = true;
+        tabbed_window.allow_restoring = true;
 
-        int i = 0;
+        int tab_index = 0;
 
         var new_tab_page = new GitTree.Views.NewTab ();
-        notebook.insert_tab(new_tab_page, i);
+        tabbed_window.insert_tab(new_tab_page, tab_index);
 
-        notebook.new_tab_requested.connect (() => {
-            notebook.insert_tab(new GitTree.Views.NewTab (), ++i);
+        tabbed_window.new_tab_requested.connect (() => {
+            tabbed_window.insert_tab(new GitTree.Views.NewTab (), ++tab_index);
         });
 
-        notebook.tab_restored.connect ((label, data, icon) => {
-
+        tabbed_window.tab_restored.connect ((label, data, icon) => {
         });
 
-        add (notebook);
+        tabbed_window.close_tab_requested.connect ((tab) => {
+            if (tab_index-1 == -1) {
+                return false;
+            } else {
+                tab_index--;
+                return true;
+            }
+        });
+
+        add (tabbed_window);
 
         show_all ();
     }

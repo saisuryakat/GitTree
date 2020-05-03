@@ -1,4 +1,6 @@
 public class GitTree.Views.NewTabView : Gtk.Paned {
+    private GitTree.Services.DatabaseService db_service;
+
     public NewTabView () {
         Object (
             orientation: Gtk.Orientation.HORIZONTAL
@@ -6,6 +8,7 @@ public class GitTree.Views.NewTabView : Gtk.Paned {
     }
 
     construct {
+        db_service = GitTree.Application.db_service;
         //Welcome
         var welcome_view = new GitTree.Views.WelcomeView ();
 
@@ -13,13 +16,11 @@ public class GitTree.Views.NewTabView : Gtk.Paned {
         welcome.icon = new GLib.ThemedIcon ("go-home");
 
         var hosting_services = build_hosting_services_ui ();
-        var recent_repos = build_recent_repos_ui ();
         var all_repos = build_all_repos_ui ();
 
         var sidebar_options = new Granite.Widgets.SourceList ();
         sidebar_options.root.add (welcome);
         sidebar_options.root.add (hosting_services);
-        sidebar_options.root.add (recent_repos);
         sidebar_options.root.add (all_repos);
 
         position = 200;
@@ -46,50 +47,16 @@ public class GitTree.Views.NewTabView : Gtk.Paned {
         return hosting_services;
     }
 
-    private Granite.Widgets.SourceList.ExpandableItem build_recent_repos_ui () {
-        var houston = new Granite.Widgets.SourceList.Item ("Houston");
-        houston.icon = new GLib.ThemedIcon ("text-x-script");
-
-        var elementary_os_installer = new Granite.Widgets.SourceList.Item ("elementary os installer");
-        elementary_os_installer.icon = new GLib.ThemedIcon ("text-x-script");
-
-        //var recent_repos_list = new ArrayList<GitTree.Models.GitRepository> ();
-
-        var recent_repos = new Granite.Widgets.SourceList.ExpandableItem ("Recents");
-        recent_repos.add (houston);
-        recent_repos.add (elementary_os_installer);
-        recent_repos.expand_all ();
-
-        return recent_repos;
-    }
-
     private Granite.Widgets.SourceList.ExpandableItem build_all_repos_ui () {
-        //Repositories
-        var houston = new Granite.Widgets.SourceList.Item ("Houston");
-        houston.icon = new GLib.ThemedIcon ("text-x-script");
-
-        var elementary_os_installer = new Granite.Widgets.SourceList.Item ("elementary os installer");
-        elementary_os_installer.icon = new GLib.ThemedIcon ("text-x-script");
-
-        var elementary_folder = new Granite.Widgets.SourceList.ExpandableItem ("Elementary");
-        elementary_folder.icon = new GLib.ThemedIcon ("folder");
-        elementary_folder.add (houston);
-        elementary_folder.add (elementary_os_installer);
-
-        var mutter = new Granite.Widgets.SourceList.Item ("Mutter");
-        mutter.icon = new GLib.ThemedIcon ("text-x-script");
-
-        var libgit2 = new Granite.Widgets.SourceList.Item ("libgit2");
-        libgit2.icon = new GLib.ThemedIcon ("text-x-script");
-
-        var gnome_folder = new Granite.Widgets.SourceList.ExpandableItem ("Gnome");
-        gnome_folder.icon = new GLib.ThemedIcon ("folder");
-        gnome_folder.add (mutter);
-        gnome_folder.add (libgit2);
+        var all_repos = db_service.fetch_all_repositories ();
 
         var all_repositories = new Granite.Widgets.SourceList.ExpandableItem ("Repositories");
-        all_repositories.add (elementary_folder);
-        all_repositories.add (gnome_folder);
+
+        foreach (var repo in all_repos) {
+            var repository = new Granite.Widgets.SourceList.Item (repo.name);
+            repository.icon = new GLib.ThemedIcon ("text-x-script");
+            all_repositories.add (repository);
+        }
         all_repositories.expand_all ();
 
         return all_repositories;
