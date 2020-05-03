@@ -12,6 +12,10 @@ executable(
     'Views/HostingServicesView.vala',
     'Views/RecentsView.vala',
     'Views/RepositoriesView.vala',
+    'Views/NewTabView.vala',
+    'Views/NewTab.vala',
+
+    'Models/GitRepository.vala',
     dependencies: [
         dependency('gtk+-3.0'),
         dependency('granite'),
