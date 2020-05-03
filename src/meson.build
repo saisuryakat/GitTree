@@ -2,10 +2,6 @@ application_id = meson.project_name()
 
 executable(
     application_id,
-    'Main.vala',
-    'Application.vala',
-    'MainWindow.vala',
-
     'Views/WelcomeView.vala',
     'Views/HeaderBarView.vala',
     'Views/WelcomeView.vala',
@@ -16,6 +12,12 @@ executable(
     'Views/NewTab.vala',
 
     'Models/GitRepository.vala',
+
+    'Services/DatabaseService.vala',
+
+    'Main.vala',
+    'Application.vala',
+    'MainWindow.vala',
     dependencies: [
         dependency('gtk+-3.0'),
         dependency('granite'),
