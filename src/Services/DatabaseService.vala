@@ -1,7 +1,7 @@
 using Gee;
 
 public class GitTree.Services.DatabaseService {
-    public Gee.List<GitTree.Models.GitRepository> all_repos { get; set; }
+
     private string get_database_path () {
         return Environment.get_home_dir () + "/.local/share/com.github.saisuryakat.gittree/database.db";
     }
@@ -30,17 +30,13 @@ public class GitTree.Services.DatabaseService {
     }
 
     public void verify_db () {
-        try {
-            string path = Environment.get_home_dir () + "/.local/share/com.github.saisuryakat.gittree";
-            File tmp = File.new_for_path (path);
-            if (tmp.query_file_type (0) != FileType.DIRECTORY) {
-                GLib.DirUtils.create_with_parents (path, 0755);
-            }
-
-            init_db ();
-        } catch (Error e) {
-            print ("Error: %s\n", e.message);
+        string path = Environment.get_home_dir () + "/.local/share/com.github.saisuryakat.gittree";
+        File tmp = File.new_for_path (path);
+        if (tmp.query_file_type (0) != FileType.DIRECTORY) {
+            GLib.DirUtils.create_with_parents (path, 0755);
         }
+
+        init_db ();
     }
 
     public Gee.List <GitTree.Models.GitRepository> fetch_all_repositories () {
@@ -65,7 +61,6 @@ public class GitTree.Services.DatabaseService {
         if (query_execution != Sqlite.OK) {
             print ("Error fetching repositories from db: %s\n", errmsg);
         }
-        all_repos = all_repositories;
         return all_repositories;
     }
 }

@@ -1,16 +1,17 @@
 public class GitTree.Views.NewTabView : Gtk.Paned {
-    private GitTree.Services.DatabaseService db_service;
+    public unowned GitTree.Services.DatabaseService db_service { get; construct; }
+    public unowned GitTree.AppWindow app_window { get; construct; }
 
-    public NewTabView () {
+    public NewTabView (GitTree.AppWindow app_window, GitTree.Services.DatabaseService db_service) {
         Object (
-            orientation: Gtk.Orientation.HORIZONTAL
+            orientation: Gtk.Orientation.HORIZONTAL,
+            app_window: app_window,
+            db_service: db_service
         );
     }
 
     construct {
-        db_service = GitTree.Application.db_service;
-        //Welcome
-        var welcome_view = new GitTree.Views.WelcomeView ();
+        var welcome_view = new GitTree.Views.WelcomeView (app_window);
 
         var welcome = new Granite.Widgets.SourceList.Item ("Welcome");
         welcome.icon = new GLib.ThemedIcon ("go-home");
@@ -48,7 +49,7 @@ public class GitTree.Views.NewTabView : Gtk.Paned {
     }
 
     private Granite.Widgets.SourceList.ExpandableItem build_all_repos_ui () {
-        var all_repos = db_service.fetch_all_repositories ();
+        var all_repos = this.db_service.fetch_all_repositories ();
 
         var all_repositories = new Granite.Widgets.SourceList.ExpandableItem ("Repositories");
 

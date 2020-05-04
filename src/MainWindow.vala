@@ -1,9 +1,12 @@
 using Gee;
 
 public class GitTree.AppWindow : Gtk.ApplicationWindow {
-    public AppWindow (Application app) {
+    public unowned GitTree.Services.DatabaseService db_service { get; construct; }
+
+    public AppWindow (Application app, GitTree.Services.DatabaseService db_service) {
         Object (
-            application: app
+            application: app,
+            db_service: db_service
         );
     }
 
@@ -22,11 +25,11 @@ public class GitTree.AppWindow : Gtk.ApplicationWindow {
 
         int tab_index = 0;
 
-        var new_tab_page = new GitTree.Views.NewTab ();
+        var new_tab_page = new GitTree.Views.NewTab (this, db_service);
         tabbed_window.insert_tab(new_tab_page, tab_index);
 
         tabbed_window.new_tab_requested.connect (() => {
-            tabbed_window.insert_tab(new GitTree.Views.NewTab (), ++tab_index);
+            tabbed_window.insert_tab(new GitTree.Views.NewTab (this, db_service), ++tab_index);
         });
 
         tabbed_window.tab_restored.connect ((label, data, icon) => {
