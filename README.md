@@ -3,4 +3,4 @@
 
 ![screenshot](gittree-screenshot.png)
 
-GitTree is a native Git GUI client
+GitTree is a native Git GUI client for elementaryOS
