@@ -23,6 +23,7 @@ executable(
         dependency('granite'),
         dependency('sqlite3'),
         dependency('gee-0.8'),
+        dependency('libgit2-glib-1.0')
     ],
     install: true
 )
